@@ -26,7 +26,7 @@ def mostFrequentNGRam(text, n):
     text_len = len(text)
     # we check for edge cases (if n is bigger than the length of the text, we return the text itself)
     if n >= text_len:
-        print(text)
+        print("The most frequent n-gram is: "+ text)
         return
     # we use python slicing to substring the text to calculate its n-grams.
     # we iterate over the text (O(text_len))
