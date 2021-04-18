@@ -1,6 +1,5 @@
 
 def calculateNGrams(text, n):
-    n = int(n)
     answer = []
     text_len = len(text)
     # we check for edge cases (if n is bigger than the length of the text, we return the text itself)
@@ -18,7 +17,6 @@ def calculateNGrams(text, n):
     print(answer)
 
 def mostFrequentNGRam(text, n):
-    n = int(n)
     ngram = ""
     # we use a dictionary and an auxiliary variable to keep track of the biggest ngram.
     biggest = 0
@@ -48,10 +46,17 @@ def mostFrequentNGRam(text, n):
 
 def menu():
     step = input("Select the step you want to run:\nType '1' for Step 1 and '2' for Step 2\n")
+    text = input("Text used for the n-gram:")
+    n = input("Number of n items:")
+    # we check if n is a valid integer.
+    try:
+        n = int(n)
+    except ValueError:
+        print("Invalid input.")
     if step == "1":
-        calculateNGrams(input("Text used for the n-gram:"), input("Number of n items:"))
+        calculateNGrams(text, n)
     elif step == "2":
-        mostFrequentNGRam(input("Text used for the most frequent n-gram:"), input("Number of n items:"))
+        mostFrequentNGRam(text, n)
     else:
         print("Pick a valid step.")
 menu()
